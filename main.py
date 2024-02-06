@@ -1,9 +1,10 @@
 import os
-from sorters.sort_by_type import sort_by_type
-from sorters.sort_by_size import sort_by_size
-from sorters.sort_by_date_modifed import sort_by_date_modified
+from sorters import sort_by_type
+from sorters import sort_by_size
+from sorters import sort_by_date_modified
 
 def print_banner():
+    # Prints a banner with the application name in ASCII art
     print("""
 ███████╗██╗██╗     ███████╗    ███████╗ ██████╗ ██████╗ ████████╗███████╗██████╗ 
 ██╔════╝██║██║     ██╔════╝    ██╔════╝██╔═══██╗██╔══██╗╚══██╔══╝██╔════╝██╔══██╗
@@ -14,6 +15,7 @@ def print_banner():
     """)
 
 def main_menu():
+    # Display the main menu options to the user
     print("Welcome to File Sorter")
     print("Please choose an option:")
     print("1. Sort files by type")
@@ -24,9 +26,10 @@ def main_menu():
     return choice
 
 def get_directory():
+    # Prompt the user to enter a directory path to sort files, or 'exit' to terminate
     while True:
-        directory = input("Enter the directory path to sort files or exit to terminate: ")
-        if directory == "exit":
+        directory = input("Enter the directory path to sort files or 'exit' to terminate: ")
+        if directory.lower() == "exit":
             exit(1)
         elif os.path.isdir(directory):
             return directory
@@ -34,27 +37,28 @@ def get_directory():
             print("Directory does not exist. Please enter a valid path.")
 
 def main():
-    print_banner()
+    # Main application logic
+    print_banner()  # Display the application banner
     while True:
         user_choice = main_menu()
             
         if user_choice == '1':
             print("You chose to sort files by type.")
             directory = get_directory()
-            sort_by_type(directory)
+            sort_by_type(directory)  # Call sort_by_type function with the user-provided directory
         elif user_choice == '2':
             print("You chose to sort files by size.")
             directory = get_directory()
-            sort_by_size(directory)
+            sort_by_size(directory)  # Call sort_by_size function with the user-provided directory
         elif user_choice == '3':
             print("You chose to sort files by date modified.")
             directory = get_directory()
-            sort_by_date_modified(directory)
+            sort_by_date_modified(directory)  # Call sort_by_date_modified function with the user-provided directory
         elif user_choice == '4':
             print("Exiting the application. Goodbye!")
-            break
+            break  # Exit the loop and terminate the application
         else:
             print("Invalid choice. Please enter a number between 1 and 4.")
 
 if __name__ == "__main__":
-    main()
+    main()  # Run the main function if the script is executed directly
