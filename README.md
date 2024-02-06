@@ -1,6 +1,6 @@
 
 # File Sorter Application
-![File Sorter Banner](https://github.com/ahmad-masud/File-Sorter/assets/96448477/072328c2-c3f5-474a-8c10-262c0c679da9)
+![File Sorter](images/filesorter.png)
 
 ## Description
 The File Sorter Application is a Python-based tool designed to help organize files in a directory. It automatically sorts files into subdirectories based on chosen criteria: file size, file type, or date modified.
